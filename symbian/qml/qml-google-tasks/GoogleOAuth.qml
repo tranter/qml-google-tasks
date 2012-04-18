@@ -13,8 +13,8 @@ Rectangle {
     height: 400
     color: "#343434";
     property string oauth_link: "https://accounts.google.com/o/oauth2/auth?" +
-                                "client_id=476807742904-1e2qesck2a151t6envel2756heus7ddt.apps.googleusercontent.com" +
-                                "&redirect_uri=http://www.ics.com/oauth2callback" +
+                                "client_id=" + OAuth.client_id +
+                                "&redirect_uri=" + OAuth.redirect_uri +
                                 "&response_type=code" +
                                 "&scope=https://www.googleapis.com/auth/tasks" +
                                 "&access_type=offline" +

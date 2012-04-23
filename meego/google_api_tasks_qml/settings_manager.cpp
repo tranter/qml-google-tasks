@@ -12,7 +12,7 @@ SettingsManager::SettingsManager(QObject *parent) :
     QSettings settings(QSettings::UserScope, m_organization, m_application);
     m_strAccessToken = settings.value("access_token", "").toString();
     m_strRefreshToken = settings.value("refresh_token", "").toString();
-    m_strRefreshToken = "";
+    //m_strRefreshToken = "";
 }
 
 QVariant SettingsManager::accessToken() const

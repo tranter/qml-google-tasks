@@ -2,7 +2,7 @@
 import QtQuick 1.0
 //import com.nokia.symbian 1.0
 import com.nokia.meego 1.0
-import com.nokia.extras 1.1
+import com.nokia.extras 1.0
 
 import ICS 1.0
 
@@ -164,7 +164,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        TaskToolButton {
+        Button {
             text: "Save"
             width: 120
             onClicked: saveButtonClicked()
@@ -173,7 +173,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        TaskToolButton {
+        Button {
             id: refreshButton
             text: "Refresh"
             width: 120

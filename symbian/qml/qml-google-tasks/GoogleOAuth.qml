@@ -2,7 +2,7 @@ import QtQuick 1.0
 import QtWebKit 1.0
 import "google_oauth.js" as OAuth
 
-import com.nokia.symbian 1.0
+import com.nokia.symbian 1.1
 //import com.nokia.meego 1.0
 
 
@@ -29,6 +29,7 @@ Rectangle {
         if(accessToken != '')
         {
             console.log("accessToken = ", accessToken)
+            textEditToHideKeyboard.closeSoftwareInputPanel();
             loginDone();
         }
     }
@@ -44,11 +45,63 @@ Rectangle {
         OAuth.refreshAccessToken(refresh_token)
     }
 
+    HeaderRectangle {
+        id: oAuthToolbar
+        anchors { left:  parent.left; right: parent.right; top: parent.top }
+
+        TextEdit{
+            id: textEditToHideKeyboard
+            visible: false
+            width: 40;
+            height: 40
+            anchors { left:hideKeyboardButton.right; verticalCenter: parent.verticalCenter}
+        }
+
+        Text {
+            id: titleText
+            text: "Login"
+            anchors { left: parent.left; right: hideKeyboardButton.left; verticalCenter: parent.verticalCenter }
+            color: "white"
+            font.pixelSize: 28
+            font.bold: true;
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        Button {
+            id: hideKeyboardButton
+            text: "Hide Keyboard"
+            width: 200
+            height: 40
+
+            visible: false // this button is hided in symbian version
+
+            anchors { right: closeButton.left; verticalCenter: parent.verticalCenter }
+            onClicked: {
+                console.log("Hide clicked");
+                //textEditToHideKeyboard.focus = true;
+                textEditToHideKeyboard.closeSoftwareInputPanel();
+            }
+        }
+
+        Button {
+            id: closeButton
+            text: "Close"
+            width: 120
+            height: 40
+            anchors { right: parent.right; verticalCenter: parent.verticalCenter }
+            onClicked: {
+                textEditToHideKeyboard.closeSoftwareInputPanel();
+                google_oauth.visible = false;
+            }
+        }
+    }
+
     Flickable {
         id: web_view_window
 
         property bool loading:  false;
-        anchors.fill: parent
+        anchors { top: oAuthToolbar.bottom; right: parent.right; left: parent.left; bottom: parent.bottom }
 
         contentWidth: Math.max(width,loginView.width)
         contentHeight: Math.max(height,loginView.height)
@@ -59,6 +112,7 @@ Rectangle {
 
             preferredWidth: web_view_window.width
             preferredHeight: web_view_window.height
+            contentsScale: 1.75
 
             url: ""
             onUrlChanged: OAuth.urlChanged(url)

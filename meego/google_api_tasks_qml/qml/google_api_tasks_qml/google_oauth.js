@@ -1,6 +1,10 @@
-var client_id = "YOUR_CLIENT_ID_HERE";
-var client_secret = "YOUR_CLIENT_SECRET_HERE";
-var redirect_uri = "YOUR_REDIRECT_URI_HERE";
+//var client_id = "YOUR_CLIENT_ID_HERE";
+//var client_secret = "YOUR_CLIENT_SECRET_HERE";
+//var redirect_uri = "YOUR_REDIRECT_URI_HERE";
+
+var client_id = "332828749277.apps.googleusercontent.com";
+var client_secret = "tmR9MLwcwCb4YM4gBVQM2ywT";
+var redirect_uri = "http://www.ics.com/oauth2callback";
 
 function urlChanged(url) {
     console.log("urlChanged!!!");

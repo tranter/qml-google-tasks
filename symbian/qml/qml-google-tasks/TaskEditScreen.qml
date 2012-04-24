@@ -1,8 +1,8 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.0
-import com.nokia.symbian 1.0
+import com.nokia.symbian 1.1
 //import com.nokia.meego 1.0
-import com.nokia.extras 1.0
+import com.nokia.extras 1.1
 
 import ICS 1.0
 
@@ -117,6 +117,7 @@ Rectangle
                 id: dueDateText
                 text: "Due date:"
                 font.pixelSize: 24
+                // font.pixelSize: 32 // in meego version
                 anchors { left: checkBoxDueDate.right;  verticalCenter: checkBoxDueDate.verticalCenter }
                 color: "white"
             }
@@ -138,6 +139,7 @@ Rectangle
                 id: textNotes
                 text: "Notes:"
                 font.pixelSize: 24
+                // font.pixelSize: 32 // in meego version
                 anchors { left: parent.left; right: parent.right; top: dueDate.bottom; topMargin: 15 }
                 color: "white"
             }

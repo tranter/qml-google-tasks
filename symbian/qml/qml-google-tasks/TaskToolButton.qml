@@ -42,6 +42,7 @@ Rectangle {
             id: textLabel
             color: "white"
             font.pixelSize: 18
+            //font.pixelSize: 24 // in meego version
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
 

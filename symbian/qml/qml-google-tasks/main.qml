@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.nokia.symbian 1.0
+import com.nokia.symbian 1.1
 //import com.nokia.meego 1.0
 
 import ICS 1.0
@@ -8,22 +8,16 @@ import "json2.js" as JSON
 
 PageStackWindow { // 1.1
 
-    id: window
+    id: pageStack
+    anchors.fill: parent
 
     property color light_color: "#333"
     property color dark_color: "black"
 
     initialPage: listPage // 1.1
 
-    showStatusBar: true // 1.1
+    showStatusBar: false // 1.1
     showToolBar: false // 1.1
-
-//    Rectangle {
-//        id: background
-//        z: -1
-//        anchors.fill: parent
-//        color: "red"
-//    }
 
     DeleteTasksDataManager {
         id: deleteTasksDataManager
@@ -50,7 +44,14 @@ PageStackWindow { // 1.1
             tasksListPage.headText = "Tasks list: " + item["title"]
             tasksListPage.clearContents()
             tasksListPage.currentListId = item["id"]
-            window.pageStack.push(tasksListPage)
+            pageStack.pageStack.push(tasksListPage)
+        }
+
+        Component.onCompleted: enablButton("Login", 100)
+
+        onHeaderButtonClicked: {
+            google_oauth.login()
+            google_oauth.visible = true
         }
     }
 
@@ -62,7 +63,7 @@ PageStackWindow { // 1.1
         onBackButtonClicked: {
             tasksListPage.clearContents()
             tasksListPage.currentListId = ""
-            window.pageStack.pop()
+            pageStack.pageStack.pop()
         }
 
         onItemIndexClicked:
@@ -75,7 +76,7 @@ PageStackWindow { // 1.1
             item["tasks_parent"] = undefined
 
             taskEditScreen.setItem( item )
-            window.pageStack.push(taskEditScreen)
+            pageStack.pageStack.push(taskEditScreen)
         }
     }
 
@@ -83,7 +84,7 @@ PageStackWindow { // 1.1
         id: taskEditScreen
         visible: false
 
-        onBackButtonClicked: window.pageStack.pop()
+        onBackButtonClicked: pageStack.pageStack.pop()
     }
 
 

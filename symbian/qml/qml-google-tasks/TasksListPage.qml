@@ -1,6 +1,6 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.0
-import com.nokia.symbian 1.0
+import com.nokia.symbian 1.1
 //import com.nokia.meego 1.0
 
 import "tasks_data_manager.js" as TasksDataManager
@@ -150,7 +150,8 @@ BaseScreen {
             Text { // CheckBox diaplay text, but not anytime ?!
                 id: textItem
                 text: title
-                font.pixelSize: fontSize
+                //font.pixelSize: fontSize
+                font.pixelSize: fontPixelSize
                 color: "white"
                 height: parent.height
                 verticalAlignment: Text.AlignVCenter

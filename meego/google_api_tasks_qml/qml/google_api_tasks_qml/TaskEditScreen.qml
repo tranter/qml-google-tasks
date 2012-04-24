@@ -2,7 +2,7 @@
 import QtQuick 1.0
 //import com.nokia.symbian 1.0
 import com.nokia.meego 1.0
-import com.nokia.extras 1.0
+import com.nokia.extras 1.1
 
 import ICS 1.0
 
@@ -116,7 +116,8 @@ Rectangle
             Text {
                 id: dueDateText
                 text: "Due date:"
-                font.pointSize: 24
+                //font.pointSize: 24
+                font.pixelSize: 32
                 anchors { left: checkBoxDueDate.right;  verticalCenter: checkBoxDueDate.verticalCenter }
                 color: "white"
             }
@@ -137,7 +138,8 @@ Rectangle
             Text {
                 id: textNotes
                 text: "Notes:"
-                font.pointSize: 24
+                //font.pointSize: 24
+                font.pixelSize: 32
                 anchors { left: parent.left; right: parent.right; top: dueDate.bottom; topMargin: 15 }
                 color: "white"
             }

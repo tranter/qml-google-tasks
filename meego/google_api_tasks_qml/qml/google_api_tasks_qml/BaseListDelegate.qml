@@ -9,9 +9,10 @@ Rectangle {
     height: 80
     color: getColor()
 
-    property int fontSize: 20
+    //property int fontSize: 20
+    property int fontPixelSize: 28
 
     signal itemIndexClicked(int index)
 
-    function getColor() { return selected ? "#999" : (index & 1 ? window.light_color : window.dark_color) }
+    function getColor() { return selected ? "#999" : (index & 1 ? pageStack.light_color : pageStack.dark_color) }
 }

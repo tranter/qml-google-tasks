@@ -41,7 +41,8 @@ Rectangle {
         Text {
             id: textLabel
             color: "white"
-            font.pointSize: 18
+            //font.pointSize: 18
+            font.pixelSize: 24
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
 

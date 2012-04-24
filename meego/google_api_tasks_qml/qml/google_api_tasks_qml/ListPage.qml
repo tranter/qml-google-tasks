@@ -8,7 +8,6 @@ BaseScreen {
     id: listPage
     anchors.fill: parent
     delegate: listViewDelegate
-//    backButtonText: "Quit"
 
     onRemoveTriggered: {
         if( isValidSelecteedItemNum() )
@@ -72,7 +71,8 @@ BaseScreen {
                 id: textItem
                 text: title
                 color: "white"
-                font.pointSize: fontSize
+                //font.pointSize: fontSize
+                font.pixelSize: fontPixelSize
                 x: 10
                 height: parent.height
                 verticalAlignment: Text.AlignVCenter

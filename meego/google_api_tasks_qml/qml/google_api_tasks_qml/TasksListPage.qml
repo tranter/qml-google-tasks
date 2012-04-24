@@ -150,7 +150,8 @@ BaseScreen {
             Text { // CheckBox diaplay text, but not anytime ?!
                 id: textItem
                 text: title
-                font.pointSize: fontSize
+                //font.pointSize: fontSize
+                font.pixelSize: fontPixelSize
                 color: "white"
                 height: parent.height
                 verticalAlignment: Text.AlignVCenter

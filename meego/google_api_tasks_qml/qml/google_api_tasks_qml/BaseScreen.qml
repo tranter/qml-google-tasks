@@ -29,6 +29,8 @@ Item {
 //    signal menuButtonClicked()
 //    signal deleteItemTriggered()
 
+    signal headerButtonClicked()
+
     onRefreshButtonClicked: showProgressBar = true
     onRemoveTriggered:      showProgressBar = true
     onCreateTriggered:      showProgressBar = true
@@ -70,6 +72,13 @@ Item {
         queryDialog.open()
     }
 
+    function enablButton(b_text, b_width) {
+        screenHeadRect.buttonVisible = true
+        screenHeadRect.buttonText = b_text
+        if( b_width > 0 )
+            screenHeadRect.buttonWidth = b_width
+    }
+
     QueryDialog {
         id: queryDialog
         acceptButtonText: "Yes"
@@ -104,6 +113,7 @@ Item {
         width: parent.width
 
         anchors { left:  parent.left; right: parent.right; top: parent.top }
+        onButtonClicked: headerButtonClicked()
     }
 
     Rectangle {
@@ -149,46 +159,6 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
         }
     }
-
-//        tools: ToolBarLayout
-//        {
-//            id: toolBarLayout
-//            smooth: true
-
-//            ToolButton {
-//                id: backButton
-//                iconSource: "qrc:/images/prev-view.png"
-//                onClicked: backButtonClicked()
-//            }
-
-//            ToolButton {
-////                text: "Add"
-//                iconSource: "qrc:/images/add.png"
-//                onClicked: {
-//                    inputDialog.open()
-//                }
-//            }
-
-////            ToolButton {
-////                iconSource: "toolbar-delete"
-////                onClicked: {
-////                    if( baseScreen.isValidSelecteedItemNum() )
-////                        deleteItemTriggered()
-////                    else showInfoMessage("Select item to delete")
-////                }
-////            }
-
-//            ToolButton {
-//                iconSource: "qrc:/images/refresh.png"
-//                onClicked: refreshButtonClicked()
-//            }
-
-////            ToolButton {
-////                iconSource: "toolbar-menu"
-////                onClicked: menuButtonClicked()
-////            }
-//        }
-//    }
 
     Rectangle {
         id: progressBarRect
